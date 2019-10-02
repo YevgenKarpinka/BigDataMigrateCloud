@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="ru-RU" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 491118482 - NamedType 1283663711" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package %1 already contains data that will be overwritten by the import. Do you want to continue?</source>
+          <target>Пакет %1 уже содержит данные, которые будут перезаписаны при импорте. Продолжить?</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1 - Package name'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType PackageAllreadyContainsDataQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 3448364287" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table %1 in the package %2 contains %3 records that will be overwritten by the import. Do you want to continue?</source>
+          <target>Таблица %1 в пакете %2 содержит записи (%3), которые будут перезаписаны при импорте. Продолжить?</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1=The ID of the table being imported. %2=The Config Package Code. %3=The number of records in the config package.'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType TableContainsRecordsQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 274216457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 is missing in the Excel file.</source>
+          <target>%1 отсутствует в файле Excel.</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1=The Package Code field caption.'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType MissingInExcelFileErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 202091858" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exporting package</source>
+          <target>Экспорт пакета</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType ExportPackageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 3047505457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importing package</source>
+          <target>Импорт пакета</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType ImportPackageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 686713877" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package%1.rapidstart</source>
+          <target>Package%1.rapidstart</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType PackageFileNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 2758618032" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target>Загрузить</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType DownloadTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 2442496597" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import File</source>
+          <target>Импорт файла</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType ImportFileTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 2146362562" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RapidStart file (*.rapidstart)|*.rapidstart|All Files (*.*)|*.*</source>
+          <target>Файл RapidStart (*.rapidstart)|*.rapidstart|Все файлы (*.*)|*.*</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='Only translate ''RapidStart Files'' {Split=r"[\|\(]\*\.[^ |)]*[|) ]?"}'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType FileDialogFilterTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 1174782222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DataList</source>
+          <target>DataList</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType DataListTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 424748964" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An error occurred while importing the %1 table. The table does not exist in the database.</source>
+          <target>Произошла ошибка при импорте таблицы %1. Таблица отсутствует в базе данных.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType TableDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 2169277508" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified file could not be imported because it is not a valid RapidStart package file.</source>
+          <target>Не удалось импортировать указанный файл, так как он не является допустимым файлом пакета RapidStart.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType WrongFileTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 558643756" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import %1 records</source>
+          <target>Импорт %1 записей</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1=The name of the table being imported.'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType RecordProgressTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 491118482 - NamedType 4126263567" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The package code specified on the configuration package must be the same as the package name in the imported package.</source>
+          <target>Код пакета, указанного в пакете конфигурации, должен быть таким же, как имя пакета в импортированном пакете.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. XML Exchange - NamedType PackageCodesMustMatchErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 694291548" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not create XML Schema.</source>
+          <target>Не удалось создать XML схему.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType CannotCreateXmlSchemaErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 804406937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating Excel worksheet</source>
+          <target>Создание листа Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType CreatingExcelMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 1756779143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not create the Excel workbook.</source>
+          <target>Не удалось создать книгу Excel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType CreateWrkBkFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 723475190" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&lt;v:shape id="%1" type="#_x0000_t202" style='position:absolute;  margin-left:59.25pt;margin-top:1.5pt;width:96pt;height:55.5pt;z-index:1;  visibility:hidden' fillcolor="#ffffe1" o:insetmode="auto"&gt;&lt;v:fill color2="#ffffe1"/&gt;&lt;v:shadow color="black" obscured="t"/&gt;&lt;v:path o:connecttype="none"/&gt;&lt;v:textbox style='mso-direction-alt:auto'&gt;&lt;div style='text-align:left'/&gt;&lt;/v:textbox&gt;&lt;x:ClientData ObjectType="Note"&gt;&lt;x:MoveWithCells/&gt;&lt;x:SizeWithCells/&gt;&lt;x:Anchor&gt;%2&lt;/x:Anchor&gt;&lt;x:AutoFill&gt;False&lt;/x:AutoFill&gt;&lt;x:Row&gt;%3&lt;/x:Row&gt;&lt;x:Column&gt;%4&lt;/x:Column&gt;&lt;/x:ClientData&gt;&lt;/v:shape&gt;</source>
+          <target>&lt;v:shape id="%1" type="#_x0000_t202" style='position:absolute;  margin-left:59.25pt;margin-top:1.5pt;width:96pt;height:55.5pt;z-index:1;  visibility:hidden' fillcolor="#ffffe1" o:insetmode="auto"&gt;&lt;v:fill color2="#ffffe1"/&gt;&lt;v:shadow color="black" obscured="t"/&gt;&lt;v:path o:connecttype="none"/&gt;&lt;v:textbox style='mso-direction-alt:auto'&gt;&lt;div style='text-align:left'/&gt;&lt;/v:textbox&gt;&lt;x:ClientData ObjectType="Note"&gt;&lt;x:MoveWithCells/&gt;&lt;x:SizeWithCells/&gt;&lt;x:Anchor&gt;%2&lt;/x:Anchor&gt;&lt;x:AutoFill&gt;False&lt;/x:AutoFill&gt;&lt;x:Row&gt;%3&lt;/x:Row&gt;&lt;x:Column&gt;%4&lt;/x:Column&gt;&lt;/x:ClientData&gt;&lt;/v:shape&gt;</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType CommentVmlShapeXmlTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 129577178" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&lt;xml xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"&gt;&lt;o:shapelayout v:ext="edit"&gt;&lt;o:idmap v:ext="edit" data="1"/&gt;&lt;/o:shapelayout&gt;&lt;v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"  path="m,l,21600r21600,l21600,xe"&gt;&lt;v:stroke joinstyle="miter"/&gt;&lt;v:path gradientshapeok="t" o:connecttype="rect"/&gt;&lt;/v:shapetype&gt;</source>
+          <target>&lt;xml xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"&gt;&lt;o:shapelayout v:ext="edit"&gt;&lt;o:idmap v:ext="edit" data="1"/&gt;&lt;/o:shapelayout&gt;&lt;v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"  path="m,l,21600r21600,l21600,xe"&gt;&lt;v:stroke joinstyle="miter"/&gt;&lt;v:path gradientshapeok="t" o:connecttype="rect"/&gt;&lt;/v:shapetype&gt;</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType VmlDrawingXmlTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 2061003519" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&lt;/xml&gt;</source>
+          <target>&lt;/xml&gt;</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType EndXmlTokenTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 848050347" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1,15,%2,10,%3,31,8,9</source>
+          <target>%1,15,%2,10,%3,31,8,9</target>
+          <note from="Developer" annotates="general" priority="2">, Locked=true</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType VmlShapeAnchorTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 2789530049" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*</source>
+          <target>Файлы Excel (*.xlsx)|*.xlsx|Все файлы (*.*)|*.*</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType FileExtensionFilterTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 1381447386" size-unit="char" translate="yes" xml:space="preserve">
+          <source>*%1.xlsx</source>
+          <target>*%1.xlsx</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1 = String generated from current datetime to make sure file names are unique '</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType ExcelFileNameTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 4095385460" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.xlsx</source>
+          <target>.xlsx</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType ExcelFileExtensionTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 260287612" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data in sheet '%1' could not be imported, because the sheet has an unexpected format.</source>
+          <target>Не удалось импортировать данные на листе &lt;%1&gt;, так как лист имеет непредвиденный формат.</target>
+          <note from="Developer" annotates="general" priority="2">, Comment='%1=excel sheet name'</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType InvalidDataInSheetMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1282839404 - NamedType 261719759" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import from Excel</source>
+          <target>Импорт из Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Config. Excel Exchange - NamedType ImportFromExcelMsg</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

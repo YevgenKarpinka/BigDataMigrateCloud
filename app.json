@@ -1,0 +1,27 @@
+{
+  "id": "a5138850-7154-431a-8e61-7782430f3e01",
+  "name": "BigData Migrate Management",
+  "publisher": "TComTech publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 60000,
+      "to": 60149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://BigDataMigrateManagement.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0",
+  "target": "Internal"
+}
