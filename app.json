@@ -22,6 +22,5 @@
   ],
   "contextSensitiveHelpUrl": "https://BigDataMigrateManagement.com/help/",
   "showMyCode": true,
-  "runtime": "3.0",
-  "target": "Internal"
+  "runtime": "3.0"
 }

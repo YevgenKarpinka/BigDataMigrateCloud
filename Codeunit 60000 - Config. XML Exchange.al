@@ -37,17 +37,17 @@ codeunit 60000 "Config. XML Exchange Ext."
         WorkingFolder: Text;
         PackageCodesMustMatchErr: Label 'The package code specified on the configuration package must be the same as the package name in the imported package.';
 
-    local procedure AddXMLComment(var PackageXML: DotNet XmlDocument; var Node: DotNet XmlNode; Comment: Text[250])
+    local procedure AddXMLComment(var PackageXML: XmlDocument; var Node: XmlNode; Comment: Text[250])
     var
-        CommentNode: DotNet XmlNode;
+        CommentNode: XmlNode;
     begin
         CommentNode := PackageXML.CreateComment(Comment);
         Node.AppendChild(CommentNode);
     end;
 
-    local procedure AddTableAttributes(ConfigPackageTable: Record 8613; var PackageXML: DotNet XmlDocument; var TableNode: DotNet XmlNode)
+    local procedure AddTableAttributes(ConfigPackageTable: Record 8613; var PackageXML: XmlDocument; var TableNode: XmlNode)
     var
-        FieldNode: DotNet XmlNode;
+        FieldNode: XmlNode;
     begin
         WITH ConfigPackageTable DO BEGIN
             IF "Page ID" > 0 THEN BEGIN
@@ -103,7 +103,7 @@ codeunit 60000 "Config. XML Exchange Ext."
         END;
     end;
 
-    local procedure AddFieldAttributes(ConfigPackageField: Record 8616; var FieldNode: DotNet XmlNode)
+    local procedure AddFieldAttributes(ConfigPackageField: Record 8616; var FieldNode: XmlNode)
     begin
         IF ConfigPackageField."Primary Key" THEN
             XMLDOMMgt.AddAttribute(FieldNode, GetElementName(ConfigPackageField.FIELDNAME("Primary Key")), '1');
@@ -116,7 +116,7 @@ codeunit 60000 "Config. XML Exchange Ext."
               FieldNode, GetElementName(ConfigPackageField.FIELDNAME("Processing Order")), FORMAT(ConfigPackageField."Processing Order"));
     end;
 
-    local procedure AddDimensionFields(var ConfigPackageField: Record 8616; var RecRef: RecordRef; var PackageXML: DotNet XmlDocument; var RecordNode: DotNet XmlNode; var FieldNode: DotNet XmlNode; ExportValue: Boolean)
+    local procedure AddDimensionFields(var ConfigPackageField: Record 8616; var RecRef: RecordRef; var PackageXML: XmlDocument; var RecordNode: XmlNode; var FieldNode: XmlNode; ExportValue: Boolean)
     var
         DimCode: Code[20];
     begin
@@ -155,17 +155,17 @@ codeunit 60000 "Config. XML Exchange Ext."
             UNTIL ConfigPackageFilter.NEXT = 0;
     end;
 
-    local procedure CreateRecordNodes(var PackageXML: DotNet XmlDocument; ConfigPackageTable: Record 8613)
+    local procedure CreateRecordNodes(var PackageXML: XmlDocument; ConfigPackageTable: Record 8613)
     var
         "Field": Record 2000000041;
         ConfigPackageField: Record 8616;
         ConfigPackage: Record 8623;
-        DocumentElement: DotNet XmlNode;
-        FieldNode: DotNet XmlNode;
-        RecordNode: DotNet XmlNode;
-        TableNode: DotNet XmlNode;
-        TableIDNode: DotNet XmlNode;
-        PackageCodeNode: DotNet XmlNode;
+        DocumentElement: XmlNode;
+        FieldNode: XmlNode;
+        RecordNode: XmlNode;
+        TableNode: XmlNode;
+        TableIDNode: XmlNode;
+        PackageCodeNode: XmlNode;
         RecRef: RecordRef;
         FieldRef: FieldRef;
         ExportMetadata: Boolean;
@@ -267,7 +267,7 @@ codeunit 60000 "Config. XML Exchange Ext."
     procedure ExportPackageXML(var ConfigPackageTable: Record 8613; XMLDataFile: Text): Boolean
     var
         ConfigPackage: Record 8623;
-        PackageXML: DotNet XmlDocument;
+        PackageXML: XmlDocument;
         FileFilter: Text;
         ToFile: Text[50];
         CompressedFileName: Text;
@@ -302,9 +302,9 @@ codeunit 60000 "Config. XML Exchange Ext."
     end;
 
     [Scope('Internal')]
-    procedure ExportPackageXMLDocument(var PackageXML: DotNet XmlDocument; var ConfigPackageTable: Record 8613; ConfigPackage: Record 8623; Advanced: Boolean)
+    procedure ExportPackageXMLDocument(var PackageXML: XmlDocument; var ConfigPackageTable: Record 8613; ConfigPackage: Record 8623; Advanced: Boolean)
     var
-        DocumentElement: DotNet XmlElement;
+        DocumentElement: XmlElement;
         LocXML: Text[1024];
     begin
         ConfigPackage.TESTFIELD(Code);
@@ -358,7 +358,7 @@ codeunit 60000 "Config. XML Exchange Ext."
             ConfigProgressBar.Close;
     end;
 
-    local procedure ExportConfigTableToXML(var ConfigPackageTable: Record 8613; var PackageXML: DotNet XmlDocument)
+    local procedure ExportConfigTableToXML(var ConfigPackageTable: Record 8613; var PackageXML: XmlDocument)
     begin
         CreateRecordNodes(PackageXML, ConfigPackageTable);
         ConfigPackageTable."Exported Date and Time" := CREATEDATETIME(TODAY, TIME);
@@ -384,7 +384,7 @@ codeunit 60000 "Config. XML Exchange Ext."
     [Scope('Internal')]
     procedure ImportPackageXML(XMLDataFile: Text): Boolean
     var
-        PackageXML: DotNet XmlDocument;
+        PackageXML: XmlDocument;
     begin
         XMLDOMMgt.LoadXMLDocumentFromFile(XMLDataFile, PackageXML);
 
@@ -394,7 +394,7 @@ codeunit 60000 "Config. XML Exchange Ext."
     [Scope('Personalization')]
     procedure ImportPackageXMLFromStream(InStream: InStream): Boolean
     var
-        PackageXML: DotNet XmlDocument;
+        PackageXML: XmlDocument;
     begin
         XMLDOMMgt.LoadXMLDocumentFromInStream(InStream, PackageXML);
 
@@ -404,7 +404,7 @@ codeunit 60000 "Config. XML Exchange Ext."
     [Scope('Personalization')]
     procedure ImportPackageXMLWithCodeFromStream(InStream: InStream; PackageCode: Code[20]): Boolean
     var
-        PackageXML: DotNet XmlDocument;
+        PackageXML: XmlDocument;
     begin
         XMLDOMMgt.LoadXMLDocumentFromInStream(InStream, PackageXML);
         IF PackageCode <> '' THEN BEGIN
@@ -416,16 +416,16 @@ codeunit 60000 "Config. XML Exchange Ext."
     end;
 
     [Scope('Internal')]
-    procedure ImportPackageXMLDocument(PackageXML: DotNet XmlDocument; PackageCode: Code[20]): Boolean
+    procedure ImportPackageXMLDocument(PackageXML: XmlDocument; PackageCode: Code[20]): Boolean
     var
         ConfigPackage: Record 8623;
         ConfigPackageRecord: Record 8614;
         ConfigPackageData: Record 8615;
         TempBlob: Record 99008535;
         ParallelSessionManagement: Codeunit 490;
-        DocumentElement: DotNet XmlElement;
-        TableNodes: DotNet XmlNodeList;
-        TableNode: DotNet XmlNode;
+        DocumentElement: XmlElement;
+        TableNodes: XmlNodeList;
+        TableNode: XmlNode;
         Value: Text;
         TableID: Integer;
         NodeCount: Integer;
@@ -529,7 +529,7 @@ codeunit 60000 "Config. XML Exchange Ext."
         EXIT(TRUE);
     end;
 
-    procedure ImportTableFromXMLNode(var TableNode: DotNet XmlNode;
+    procedure ImportTableFromXMLNode(var TableNode: XmlNode;
 
     var
         PackageCode: Code[20])
@@ -550,13 +550,13 @@ codeunit 60000 "Config. XML Exchange Ext."
         END;
     end;
 
-    local procedure PackageDataExistsInXML(PackageCode: Code[20]; TableID: Integer; var TableNode: DotNet XmlNode): Boolean
+    local procedure PackageDataExistsInXML(PackageCode: Code[20]; TableID: Integer; var TableNode: XmlNode): Boolean
     var
         ConfigPackageTable: Record 8613;
         ConfigPackageField: Record 8616;
         RecRef: RecordRef;
-        RecordNodes: DotNet XmlNodeList;
-        RecordNode: DotNet XmlNode;
+        RecordNodes: XmlNodeList;
+        RecordNode: XmlNode;
         I: Integer;
     begin
         IF NOT ConfigPackageTable.GET(PackageCode, TableID) THEN
@@ -587,16 +587,16 @@ codeunit 60000 "Config. XML Exchange Ext."
         EXIT(FALSE);
     end;
 
-    local procedure FillPackageMetadataFromXML(var PackageCode: Code[20]; TableID: Integer; var TableNode: DotNet XmlNode)
+    local procedure FillPackageMetadataFromXML(var PackageCode: Code[20]; TableID: Integer; var TableNode: XmlNode)
     var
         ConfigPackage: Record 8623;
         ConfigPackageTable: Record 8613;
         ConfigPackageField: Record 8616;
         "Field": Record 2000000041;
         ConfigMgt: Codeunit 8616;
-        RecordNodes: DotNet XmlNodeList;
-        RecordNode: DotNet XmlNode;
-        FieldNode: DotNet XmlNode;
+        RecordNodes: XmlNodeList;
+        RecordNode: XmlNode;
+        FieldNode: XmlNode;
         Value: Text;
     begin
         IF (TableID > 0) AND (NOT ConfigPackageTable.GET(PackageCode, TableID)) THEN BEGIN
@@ -703,7 +703,7 @@ codeunit 60000 "Config. XML Exchange Ext."
         END;
     end;
 
-    local procedure FillPackageDataFromXML(PackageCode: Code[20]; TableID: Integer; var TableNode: DotNet XmlNode)
+    local procedure FillPackageDataFromXML(PackageCode: Code[20]; TableID: Integer; var TableNode: XmlNode)
     var
         ConfigPackageTable: Record 8613;
         ConfigPackageData: Record 8615;
@@ -713,8 +713,8 @@ codeunit 60000 "Config. XML Exchange Ext."
         ConfigProgressBarRecord: Codeunit 8615;
         RecRef: RecordRef;
         FieldRef: FieldRef;
-        RecordNodes: DotNet XmlNodeList;
-        RecordNode: DotNet XmlNode;
+        RecordNodes: XmlNodeList;
+        RecordNode: XmlNode;
         NodeCount: Integer;
         RecordCount: Integer;
         StepCount: Integer;
@@ -813,9 +813,9 @@ codeunit 60000 "Config. XML Exchange Ext."
             UNTIL Field.NEXT = 0;
     end;
 
-    local procedure FieldNodeExists(var RecordNode: DotNet XmlNode; FieldNodeName: Text[250]): Boolean
+    local procedure FieldNodeExists(var RecordNode: XmlNode; FieldNodeName: Text[250]): Boolean
     var
-        FieldNode: DotNet XmlNode;
+        FieldNode: XmlNode;
     begin
         FieldNode := RecordNode.SelectSingleNode(FieldNodeName);
 
@@ -861,16 +861,34 @@ codeunit 60000 "Config. XML Exchange Ext."
         EXIT(InnerText);
     end;
 
-    procedure GetAttribute(AttributeName: Text[1024]; var XMLNode: DotNet XmlNode): Text[1000]
+    // procedure GetAttribute(AttributeName: Text[1024]; var XMLNode: XmlNode): Text[1000]
+    // var
+    //     XMLAttributes: DotNet XmlNamedNodeMap;
+    //     XMLAttributeNode: XmlNode;
+    // begin
+    //     XMLAttributes := XMLNode.Attributes;
+    //     XMLAttributeNode := XMLAttributes.GetNamedItem(AttributeName);
+    //     IF ISNULL(XMLAttributeNode) THEN
+    //         EXIT('');
+    //     EXIT(FORMAT(XMLAttributeNode.InnerText));
+    // end;
+
+    procedure GetAttribute(AttributeName: Text[1024]; CurrNode: XmlNode): Text[1000]
     var
-        XMLAttributes: DotNet XmlNamedNodeMap;
-        XMLAttributeNode: DotNet XmlNode;
+        XmlAttrib: XmlAttribute;
+        XmlElem: XmlElement;
+        XmlAttributeColl: XmlAttributeCollection;
+        I: Integer;
     begin
-        XMLAttributes := XMLNode.Attributes;
-        XMLAttributeNode := XMLAttributes.GetNamedItem(AttributeName);
-        IF ISNULL(XMLAttributeNode) THEN
-            EXIT('');
-        EXIT(FORMAT(XMLAttributeNode.InnerText));
+        if CurrNode.IsXmlElement then
+            XmlElem := CurrNode.AsXmlElement();
+        if XmlElem.HasAttributes then
+            XmlAttributeColl := XmlElem.Attributes();
+        for I := 1 to XmlAttributeColl.count do begin
+            if XmlAttributeColl.Get(I, XmlAttrib) then
+                if XmlAttrib.Name = AttributeName then
+                    exit(XmlAttrib.Value);
+        end;
     end;
 
     local procedure GetDimValueFromTable(var RecRef: RecordRef; DimCode: Code[20]): Code[20]
@@ -938,9 +956,9 @@ codeunit 60000 "Config. XML Exchange Ext."
         EXIT(GetElementName(NameIn));
     end;
 
-    local procedure GetNodeValue(var RecordNode: DotNet XmlNode; FieldNodeName: Text[250]): Text
+    local procedure GetNodeValue(var RecordNode: XmlNode; FieldNodeName: Text[250]): Text
     var
-        FieldNode: DotNet XmlNode;
+        FieldNode: XmlNode;
     begin
         FieldNode := RecordNode.SelectSingleNode(FieldNodeName);
         IF NOT ISNULL(FieldNode) THEN
@@ -953,10 +971,10 @@ codeunit 60000 "Config. XML Exchange Ext."
     end;
 
     [Scope('Internal')]
-    procedure GetPackageCode(PackageXML: DotNet XmlDocument): Code[20]
+    procedure GetPackageCode(PackageXML: XmlDocument): Code[20]
     var
         ConfigPackage: Record 8623;
-        DocumentElement: DotNet XmlElement;
+        DocumentElement: XmlElement;
     begin
         DocumentElement := PackageXML.DocumentElement;
         EXIT(COPYSTR(GetAttribute(GetElementName(ConfigPackage.FIELDNAME(Code)), DocumentElement), 1, MAXSTRLEN(ConfigPackage.Code)));
@@ -1183,7 +1201,7 @@ codeunit 60000 "Config. XML Exchange Ext."
         EXIT(MediaIDGuidText);
     end;
 
-    local procedure GetConfigPackageDataValue(var ConfigPackageData: Record 8615; var RecordNode: DotNet XmlNode; FieldNodeName: Text[250])
+    local procedure GetConfigPackageDataValue(var ConfigPackageData: Record 8615; var RecordNode: XmlNode; FieldNodeName: Text[250])
     var
         TempBlob: Record 99008535;
     begin
@@ -1220,7 +1238,7 @@ codeunit 60000 "Config. XML Exchange Ext."
         FileManagement.ServerRemoveDirectory(MediaFolder, TRUE);
     end;
 
-    local procedure ExportConfigPackageMediaSetToXML(var PackageXML: DotNet XmlDocument; ConfigPackage: Record 8623)
+    local procedure ExportConfigPackageMediaSetToXML(var PackageXML: XmlDocument; ConfigPackage: Record 8623)
     var
         ConfigMediaBuffer: Record 8630;
         ConfigPackageTable: Record 8613;
